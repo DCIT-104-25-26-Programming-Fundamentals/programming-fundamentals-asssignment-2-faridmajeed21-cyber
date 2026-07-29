@@ -56,4 +56,56 @@
 
 #include <iostream>
 using namespace std;
+// Function Declarations
+void printSingleTable(int num);
+void printAllTables(int n);
 
+int main() {
+    int num, n;
+
+    // --- PART A ---
+    cout << "Enter a number for the multiplication table: ";
+    cin >> num;
+    printSingleTable(num);
+
+    cout << endl;
+
+    // --- PART B ---
+    cout << "Enter N to print tables from 1 to N: ";
+    cin >> n;
+    printAllTables(n);
+
+    return 0;
+}
+
+// -----------------------------------------------------------------------------
+// PART A — Single Table
+// -----------------------------------------------------------------------------
+void printSingleTable(int num) {
+    if (num <= 0) {
+        cout << "Error: Number must be a positive integer." << endl;
+        return;
+    }
+
+    cout << "Multiplication Table for " << num << ":" << endl;
+    for (int i = 1; i <= 12; i++) {
+        cout << num << " x " << i << " = " << (num * i) << endl;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// PART B — Bonus: Tables from 1 to N
+// -----------------------------------------------------------------------------
+void printAllTables(int n) {
+    if (n <= 0) {
+        cout << "Error: N must be a positive integer." << endl;
+        return;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        printSingleTable(i);
+        if (i < n) {
+            cout << "---------------------------" << endl;
+        }
+    }
+}
