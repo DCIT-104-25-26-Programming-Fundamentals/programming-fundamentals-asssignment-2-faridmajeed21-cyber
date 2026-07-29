@@ -41,4 +41,63 @@
 
 #include <iostream>
 using namespace std;
+// Function to calculate sum
+double calculateSum(const double arr[], int size) {
+    double sum = 0.0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
 
+// Function to calculate average
+double calculateAverage(const double arr[], int size) {
+    return calculateSum(arr, size) / size;
+}
+
+// Function to find maximum
+double findMax(const double arr[], int size) {
+    double maxVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
+
+// Function to find minimum
+double findMin(const double arr[], int size) {
+    double minVal = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+    }
+    return minVal;
+}
+
+int main() {
+    int n;
+    cout << "How many numbers? ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Error: Number of elements must be a positive integer." << endl;
+        return 0;
+    }
+
+    double arr[100]; // Assuming maximum 100 elements for standard array allocation
+    for (int i = 0; i < n; i++) {
+        cout << "Enter number " << (i + 1) << ": ";
+        cin >> arr[i];
+    }
+
+    cout << endl << "Results:" << endl;
+    cout << "Sum:     " << calculateSum(arr, n) << endl;
+    cout << "Average: " << calculateAverage(arr, n) << endl;
+    cout << "Maximum: " << findMax(arr, n) << endl;
+    cout << "Minimum: " << findMin(arr, n) << endl;
+
+    return 0;
+}
